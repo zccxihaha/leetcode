@@ -1,0 +1,40 @@
+# Project: leetcode
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = leetcode_1_two_sum.o sort.o leetcode.o leetcode_11_container_most_water.o leetcode_15_3sum.o
+LINKOBJ  = leetcode_1_two_sum.o sort.o leetcode.o leetcode_11_container_most_water.o leetcode_15_3sum.o
+LIBS     = -L"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = leetcode.exe
+CXXFLAGS = $(CXXINCS) -std=gnu11
+CFLAGS   = $(INCS) -std=gnu11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+leetcode_1_two_sum.o: leetcode_1_two_sum.c
+	$(CC) -c leetcode_1_two_sum.c -o leetcode_1_two_sum.o $(CFLAGS)
+
+sort.o: sort.c
+	$(CC) -c sort.c -o sort.o $(CFLAGS)
+
+leetcode.o: leetcode.c
+	$(CC) -c leetcode.c -o leetcode.o $(CFLAGS)
+
+leetcode_11_container_most_water.o: leetcode_11_container_most_water.c
+	$(CC) -c leetcode_11_container_most_water.c -o leetcode_11_container_most_water.o $(CFLAGS)
+
+leetcode_15_3sum.o: leetcode_15_3sum.c
+	$(CC) -c leetcode_15_3sum.c -o leetcode_15_3sum.o $(CFLAGS)
